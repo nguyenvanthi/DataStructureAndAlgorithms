@@ -7,7 +7,7 @@ open class LinkedList<T> : ILinkedList<T> {
     private var size = 0
 
     override fun insert(value: T, index: Int) {
-        require(index in 0 until index + 1) {
+        require(index in 0 until size + 1) {
             "Index is out of range."
         }
 
@@ -15,9 +15,8 @@ open class LinkedList<T> : ILinkedList<T> {
 
         val node = Node(value)
 
-        when {
-            isEmpty() -> head = node
-            index == 0 -> {
+        when (index) {
+            0 -> {
                 node.next = head
                 head = node
             }
@@ -56,9 +55,11 @@ open class LinkedList<T> : ILinkedList<T> {
     }
 
     override fun remove(index: Int) {
-        require(index in 0 until index + 1) {
+        require(index in 0 until size + 1) {
             "Index is out of range."
         }
+
+        size--
 
         if (index == 0) {
             head = head!!.next
@@ -99,9 +100,5 @@ open class LinkedList<T> : ILinkedList<T> {
         } else {
             "$head"
         }
-    }
-
-    private fun isEmpty(): Boolean {
-        return size == 0
     }
 }

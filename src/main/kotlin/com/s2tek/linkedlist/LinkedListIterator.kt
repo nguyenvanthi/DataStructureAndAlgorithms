@@ -8,7 +8,7 @@ class LinkedListIterator<T>(private var node: Node<T>?) : Iterator<T> {
     override fun next(): T {
         val value = node!!.value
 
-        node = node?.next
+        node = node!!.next
 
         return value
     }
