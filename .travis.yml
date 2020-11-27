@@ -4,7 +4,7 @@ matrix:
   include:
     - os: linux
       sudo: required
-      jdk: openjdk12
+      jdk: openjdk15
 
 script: gradle build --scan
 
