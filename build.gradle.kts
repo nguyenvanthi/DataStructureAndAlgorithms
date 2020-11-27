@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.4.20"
     application
+    jacoco
     id("org.jmailen.kotlinter") version "3.2.0"
     id("com.github.jakemarsden.git-hooks") version "0.0.2"
 }
@@ -23,10 +24,17 @@ dependencies {
 
 tasks.test {
     useJUnit()
+    finalizedBy(tasks.jacocoTestReport)
 }
 
 tasks.check {
     dependsOn("installKotlinterPrePushHook")
+}
+
+tasks.jacocoTestReport {
+    reports {
+        html.destination = file("coverage")
+    }
 }
 
 gitHooks {
