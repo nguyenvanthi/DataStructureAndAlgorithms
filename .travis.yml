@@ -8,7 +8,6 @@ matrix:
       dist: trusty
 
 script:
-  - apt install gradle -y
   - gradle build --scan
 
 before_cache:
