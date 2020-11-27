@@ -7,7 +7,7 @@ interface IStack<T> {
     fun push(value: T)
 }
 
-class Stack<T>: IStack<T> {
+class Stack<T> : IStack<T> {
     private val list = LinkedList<T>()
 
     override fun pop(): T? {

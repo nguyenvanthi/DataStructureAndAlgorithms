@@ -1,15 +1,9 @@
 package com.s2tek.linkedlist
 
-interface ILinkedList<T> {
-    fun insert(value: T, index: Int)
-    fun at(index: Int): T?
-    fun remove(index: Int)
-}
-
 typealias OnTraverse<T> = (currentNode: Node<T>, index: Int) -> Boolean
 
-class LinkedList<T> : ILinkedList<T>{
-    private var head: Node<T>? = null
+open class LinkedList<T> : ILinkedList<T> {
+    protected var head: Node<T>? = null
     private var size = 0
 
     override fun insert(value: T, index: Int) {
@@ -28,7 +22,7 @@ class LinkedList<T> : ILinkedList<T>{
                 head = node
             }
             else -> {
-                val onTraverse: OnTraverse<T> = {currentNode: Node<T>, currentIndex: Int ->
+                val onTraverse: OnTraverse<T> = { currentNode: Node<T>, currentIndex: Int ->
                     if (currentIndex == index - 1) {
                         node.next = currentNode.next
                         currentNode.next = node
