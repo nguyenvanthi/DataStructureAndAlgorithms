@@ -5,10 +5,11 @@ matrix:
     - os: linux
       sudo: required
       jdk: openjdk15
+      dist: trusty
 
 script:
-  - gradle wrapper
-  - ./gradlew build --scan
+  - snap install gradle --classic
+  - gradle build --scan
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
