@@ -1,5 +1,7 @@
 name: Gradle Task
 
+on: push
+
 jobs:
   build:
 
