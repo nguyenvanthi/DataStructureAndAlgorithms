@@ -22,7 +22,7 @@ class LinkedList<T> : ILinkedList<T>{
         val node = Node(value)
 
         when {
-            head == null -> head = node
+            isEmpty() -> head = node
             index == 0 -> {
                 node.next = head
                 head = node
@@ -105,5 +105,9 @@ class LinkedList<T> : ILinkedList<T>{
         } else {
             "$head"
         }
+    }
+
+    private fun isEmpty(): Boolean {
+        return size == 0
     }
 }
