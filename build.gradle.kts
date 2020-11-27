@@ -33,7 +33,7 @@ tasks.check {
 
 tasks.jacocoTestReport {
     reports {
-        html.destination = file("docs")
+        html.destination = file("coverage")
     }
 }
 
