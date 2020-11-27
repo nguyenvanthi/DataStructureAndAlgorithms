@@ -27,9 +27,8 @@ tasks.test {
 
 tasks.check {
     dependsOn("installKotlinterPrePushHook")
-    dependsOn("test")
 }
 
 gitHooks {
-    setHooks(mapOf("pre-commit" to "check"))
+    setHooks(mapOf("pre-commit" to "check test --parallel"))
 }
