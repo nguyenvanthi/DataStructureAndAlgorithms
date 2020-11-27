@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.4.20"
     application
     id("org.jmailen.kotlinter") version "3.2.0"
+    id("com.github.jakemarsden.git-hooks") version "0.0.2"
 }
 
 group = "com.s2tek"
@@ -26,4 +27,9 @@ tasks.test {
 
 tasks.check {
     dependsOn("installKotlinterPrePushHook")
+    dependsOn("test")
+}
+
+gitHooks {
+    setHooks(mapOf("pre-commit" to "check"))
 }

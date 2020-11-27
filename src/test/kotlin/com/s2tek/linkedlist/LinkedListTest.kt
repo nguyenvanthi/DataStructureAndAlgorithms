@@ -4,7 +4,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 class LinkedListTest {
-    private val linkedList = LinkedList<Int>();
+    private val linkedList = LinkedList<Int>()
 
     @Test
     public fun insertFirstElement() {
