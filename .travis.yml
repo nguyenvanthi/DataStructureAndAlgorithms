@@ -4,11 +4,11 @@ matrix:
   include:
     - os: linux
       sudo: required
-      jdk: openjdk15
+      jdk: openjdk12
       dist: trusty
 
 script:
-  - snap install gradle --classic
+  - apt install gradle -y
   - gradle build --scan
 
 before_cache:
