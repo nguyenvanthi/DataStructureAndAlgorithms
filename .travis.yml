@@ -6,7 +6,9 @@ matrix:
       sudo: required
       jdk: openjdk15
 
-script: gradle build --scan
+script:
+  - gradle wrapper
+  - ./gradlew build --scan
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
