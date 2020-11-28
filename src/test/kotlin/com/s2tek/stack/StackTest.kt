@@ -8,7 +8,7 @@ class StackTest {
     private val stack = Stack<Int>()
 
     @Test
-    fun popAnEmptyStack(){
+    fun popAnEmptyStack() {
         val actual = stack.pop()
 
         assertNull(actual)
