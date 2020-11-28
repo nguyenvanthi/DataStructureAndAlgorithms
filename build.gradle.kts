@@ -31,12 +31,16 @@ tasks.check {
     dependsOn("installKotlinterPrePushHook")
 }
 
-tasks.jacocoTestReport {
-    reports {
-        html.destination = file("coverage")
-    }
-}
-
 gitHooks {
     setHooks(mapOf("pre-commit" to "check test --parallel"))
+}
+
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.9".toBigDecimal()
+            }
+        }
+    }
 }
