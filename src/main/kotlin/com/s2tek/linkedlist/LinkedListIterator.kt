@@ -1,15 +1,15 @@
 package com.s2tek.linkedlist
 
 class LinkedListIterator<T>(private var node: Node<T>?) : Iterator<T> {
-    override fun hasNext(): Boolean {
-        return node != null
-    }
+  override fun hasNext(): Boolean {
+    return node != null
+  }
 
-    override fun next(): T {
-        val value = node!!.value
+  override fun next(): T {
+    val value = node!!.value
 
-        node = node!!.next
+    node = node!!.next
 
-        return value
-    }
+    return value
+  }
 }

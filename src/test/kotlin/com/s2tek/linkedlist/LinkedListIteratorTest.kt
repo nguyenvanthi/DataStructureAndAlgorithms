@@ -7,40 +7,40 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class LinkedListIteratorTest {
-    @Test
-    fun hasNextWhileNodeIsNull() {
-        val iterator = LinkedListIterator<Int>(null)
+  @Test
+  fun hasNextWhileNodeIsNull() {
+    val iterator = LinkedListIterator<Int>(null)
 
-        assertFalse(iterator.hasNext())
+    assertFalse(iterator.hasNext())
+  }
+
+  @Test
+  fun hasNextWhileNodeIsNotNull() {
+    val iterator = LinkedListIterator(Node(1))
+
+    assertTrue(iterator.hasNext())
+  }
+
+  @Test
+  fun nextWhileNodeIsNull() {
+    val iterator = LinkedListIterator<Int>(null)
+
+    assertFails {
+      iterator.next()
     }
+  }
 
-    @Test
-    fun hasNextWhileNodeIsNotNull() {
-        val iterator = LinkedListIterator(Node(1))
+  @Test
+  fun nextWhileNodeIsNotNull() {
+    val iterator = LinkedListIterator(Node(1))
 
-        assertTrue(iterator.hasNext())
-    }
+    assertEquals(1, iterator.next())
+  }
 
-    @Test
-    fun nextWhileNodeIsNull() {
-        val iterator = LinkedListIterator<Int>(null)
+  @Test
+  fun nextWhileNodeHasNextValue() {
+    val iterator = LinkedListIterator(Node(1, Node(2)))
 
-        assertFails {
-            iterator.next()
-        }
-    }
-
-    @Test
-    fun nextWhileNodeIsNotNull() {
-        val iterator = LinkedListIterator(Node(1))
-
-        assertEquals(1, iterator.next())
-    }
-
-    @Test
-    fun nextWhileNodeHasNextValue() {
-        val iterator = LinkedListIterator(Node(1, Node(2)))
-
-        assertEquals(1, iterator.next())
-    }
+    assertEquals(1, iterator.next())
+  }
 }

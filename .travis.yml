@@ -5,10 +5,11 @@ dist: trusty
 
 jobs:
   include:
-     - jdk: openjdk12
+    - jdk: openjdk12
 
 script:
   - ./gradlew build --info
+  - ./gradlew jacocoTestCoverageVerification
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
