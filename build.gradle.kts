@@ -31,6 +31,13 @@ tasks.check {
     dependsOn("installKotlinterPrePushHook")
 }
 
+tasks.jacocoTestReport {
+    reports {
+        csv.isEnabled = true
+        xml.isEnabled = true
+    }
+}
+
 gitHooks {
     setHooks(mapOf("pre-commit" to "check test --parallel"))
 }
